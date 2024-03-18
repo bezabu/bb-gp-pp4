@@ -24,13 +24,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-jckra_c4w6ico1-d_*c!9&udmd98tm#lxih5buo4f!^!y88f!6'
+SECRET_KEY = os.environ.get("SECRET_KEY")
+# SECRET_KEY = "13271f6a-f1c9-4fe9-9c38-94ea143803e3"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['8000-bezabu-bbgppp4-c5liuwnbgtb.ws-eu110.gitpod.io','.herokuapp.com']
+ALLOWED_HOSTS = ['8000-bezabu-bbgppp4-c5liuwnbgtb.ws-eu110.gitpod.io','.herokuapp.com', 'localhost']
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.codeanyapp.com",
+    "https://*.herokuapp.com",
+    "https://*.gitpod.io"
+]
 
 # Application definition
 
@@ -86,8 +92,7 @@ WSGI_APPLICATION = 'bb_drt.wsgi.application'
 # }
 
 DATABASES = {
-    'default':
-    dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
 
@@ -131,3 +136,4 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
