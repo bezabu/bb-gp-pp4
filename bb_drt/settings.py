@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECRET_KEY = "13271f6a-f1c9-4fe9-9c38-94ea143803e3"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['8000-bezabu-bbgppp4-c5liuwnbgtb.ws-eu110.gitpod.io','.herokuapp.com', 'localhost']
 
